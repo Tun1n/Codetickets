@@ -1,0 +1,16 @@
+services:
+  pgcode:
+    build: .
+    container_name: pgcode
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "9518:5432"
+    volumes:
+      - pgcode-data:/var/lib/postgresql/data
+
+volumes:
+  pgcode-data:
