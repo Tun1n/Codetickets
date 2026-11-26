@@ -1,3 +1,15 @@
 spring:
   application:
     name: codetickets
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:9518/postgres}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  batch:
+    jdbc:
+      initialize-schema: always # Cria tabelas de metadados do Spring batch ao rodar a aplicação para realizar
+                                # Métricas das JOBS, histórico, estado de execução...
+
