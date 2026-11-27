@@ -13,3 +13,6 @@ spring:
       initialize-schema: always # Cria tabelas de metadados do Spring batch ao rodar a aplicação para realizar
                                 # Métricas das JOBS, histórico, estado de execução...
 
+  jpa:
+    hibernate:
+      ddl-auto: update
